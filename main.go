@@ -1,12 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/bookcrud/handlers"
 )
 
 func main() {
+	// Route handlers
 	http.HandleFunc("/books", handlers.GetBooks)
 
 	http.HandleFunc("/book", func(w http.ResponseWriter, r *http.Request) {
@@ -23,6 +25,6 @@ func main() {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
-
+	fmt.Println("Server is running on port 8080")
 	http.ListenAndServe(":8080", nil)
 }

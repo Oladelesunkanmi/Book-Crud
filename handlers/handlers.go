@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// to create a new book
 func CreateBook(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -28,6 +29,7 @@ func CreateBook(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(book)
 }
 
+// to get all books
 func GetBooks(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -37,6 +39,8 @@ func GetBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(Books)
 }
+
+// to get a single book by id
 func GetBook(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -60,6 +64,8 @@ func GetBook(w http.ResponseWriter, r *http.Request) {
 
 	http.Error(w, "Book not found", http.StatusNotFound)
 }
+
+// to delete a single book by id
 func DeleteBook(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodDelete {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -82,6 +88,8 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 
 	http.Error(w, "Book not found", http.StatusNotFound)
 }
+
+// to update a single book by id
 func UpdateBook(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPut {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)

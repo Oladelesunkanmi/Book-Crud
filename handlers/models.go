@@ -1,5 +1,7 @@
 package handlers
 
+// Book struct
+
 type Book struct {
 	ID          string  `json:"id"`
 	Title       string  `json:"title"`
@@ -7,12 +9,10 @@ type Book struct {
 	Author      *Author `json:"author"`
 }
 
+// Author struct
 type Author struct {
 	Firstname string `json:"firstname"`
 	Lastname  string `json:"lastname"`
-}
-type IDRequest struct {
-	ID string `json:"id"`
 }
 
 var Books []Book
